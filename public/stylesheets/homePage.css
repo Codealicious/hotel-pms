@@ -1,0 +1,27 @@
+html {
+    height: 100%; 
+    background-repeat: no-repeat;
+    background: linear-gradient(#e66465, #df720d );
+}
+
+.welcomeBanner {
+    color: white; 
+    font-family: 'Abril Fatface' ;
+    margin-top: 8rem;
+    margin-bottom: 6rem;
+    font-size: 3.5rem;
+}
+
+.contentWrapper  a {
+    display: block;
+    font-size: 2.3em;
+    color: black;
+    background-color: white;
+    padding: 1rem;
+    margin: .5rem;
+    
+}
+
+#homePageNav {
+    justify-content: flex-end;
+}

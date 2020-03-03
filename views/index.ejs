@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('./partials/header'); %>
+
+  <div class="contentWrapper">
+    <img src="images/hotelLogo.svg" alt="Company Logo">
+    <h1>HOTELWARE</h1>
+    <a href="/auth/google" >LOG IN</a>
+  </div>
+
+<%- include('./partials/footer'); %>

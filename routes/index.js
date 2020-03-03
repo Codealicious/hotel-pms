@@ -4,7 +4,14 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/hotels');
+  if(req.user) return res.redirect('/hotels');
+  res.render('index', {
+    title: 'Login Page',
+    links: [
+      'siteWide',
+      'loginPage'
+    ]
+  });
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -16,13 +23,13 @@ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     successRedirect: '/hotels',
-    failureRedirect: '/hotels'
+    failureRedirect: '/'
   }
 ));
 
 router.get('/logut', function(req, res) {
   req.logout();
-  res.redirect('/hotels');
+  res.redirect('/');
 });
 
 module.exports = router;
