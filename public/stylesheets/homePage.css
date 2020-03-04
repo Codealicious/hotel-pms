@@ -6,22 +6,35 @@ html {
 
 .welcomeBanner {
     color: white; 
-    font-family: 'Abril Fatface' ;
+    font-family: 'Abril Fatface';
+    letter-spacing: .6rem;
     margin-top: 8rem;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     font-size: 3.5rem;
 }
 
-.contentWrapper  a {
-    display: block;
-    font-size: 2.3em;
-    color: black;
-    background-color: white;
-    padding: 1rem;
-    margin: .5rem;
-    
+h2 {
+    color: white;
+    font-family: 'Spartan', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: .5rem;
 }
 
-#homePageNav {
-    justify-content: flex-end;
+
+button {
+    font-size: 2rem;
+    margin: 1.5rem;
+    padding: .6rem;
+    border-radius: 10px;
+}
+
+button:hover{
+    cursor: pointer;
+    box-shadow: -1px -2px black;
+}
+
+select {
+    font-size: 2rem;
+    width: 20rem;
+    padding: 1rem;
 }

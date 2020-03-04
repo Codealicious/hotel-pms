@@ -8,9 +8,10 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Login Page',
     links: [
-      'siteWide',
-      'loginPage'
-    ]
+      'siteWide.css',
+      'loginPage.css'
+    ],
+    scripts: null
   });
 });
 

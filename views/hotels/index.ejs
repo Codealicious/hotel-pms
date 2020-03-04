@@ -1,14 +1,23 @@
 <%- include('../partials/header'); %>
 
-    <nav id="homePageNav" class="flexRow">
+    <nav class="flexRow">
         <a class="logoutButton" href="/logut">LOG OUT</a>
     </nav>
     <div class="contentWrapper">
         <h1 class="welcomeBanner">Welcome <%= name %></h1>
-        <div class="flexRow">
-            <a>Make A Reservation</a>
-            <a>Add A Guest Profile</a>
-        </div>
+        <h2>Select Your Property: </h2>
+        <form id="hotels" action="/hotels/<%= hotels[0].id %>">
+            <select id="hotel">
+                <%  hotels.forEach((hotel) => { %>
+                <%-     `<option value="${hotel.id}>">${hotel.name}</option> ` %>
+                <%  }); %>
+            </select>
+            <div>
+                <button type ="submit">
+                    Select Hotel
+                </button>
+            </div>
+        </form>
     </div>
 
 <%- include('../partials/footer'); %>

@@ -9,8 +9,17 @@ function index(req, res) {
     res.render('hotels/index', {
         title: "Hotels | Home",
         links: [
-            'siteWide',
-            'homePage'
+            'siteWide.css',
+            'homePage.css'
+        ],
+        scripts: [
+            'hotels.js'
+        ],
+        hotels: [
+            {name: 'Hyatt', id: 0},
+            {name: 'Marriot', id: 1},
+            {name: 'Hard Rock', id: 2},
+            {name: 'Kimpton', id: 3}
         ],
         name: req.user.name
         

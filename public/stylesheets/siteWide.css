@@ -14,6 +14,10 @@ body {
     justify-content: space-evenly;
 }
 
+nav.flexRow {
+    justify-content: flex-end;
+}
+
 a {
     font-family: 'Abril Fatface' ;
     letter-spacing: .4rem;
