@@ -1,0 +1,30 @@
+<%- include('./partials/header'); %>
+
+    <nav class="flexRow">
+        <a href="/logout">LOG OUT</a>
+    </nav>
+    <div class="contentWrapper landing">
+        <h1 class="mainHeading">Welcome <%= name %></h1>
+        <div class="flexRow">
+            <div>
+                <h2>Select Your Property: </h2>
+                <form id="hotels" action="/hotels/<%= hotels[0]._id %>">
+                    <select id="hotel" name="hotel">
+                        <%  hotels.forEach((hotel) => { %>
+                        <%-     `<option value="${hotel._id}">${hotel.name}</option>` %>
+                        <%  }); %>
+                    </select>
+                    <div>
+                        <button type ="submit">
+                            Select Hotel
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <a class="guestProfiles">Manage Guest Profiles</a>
+            </div>
+        </div>
+    </div>
+
+<%- include('./partials/footer'); %>

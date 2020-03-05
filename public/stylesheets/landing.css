@@ -1,20 +1,26 @@
 html {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     height: 100%; 
     background-repeat: no-repeat;
     background: linear-gradient(#e66465, #df720d );
+  }
+
+div.flexRow {
+    align-items: center;
 }
 
-.welcomeBanner {
-    color: white; 
-    font-family: 'Abril Fatface';
-    letter-spacing: .6rem;
-    margin-top: 8rem;
-    margin-bottom: 4rem;
-    font-size: 3.5rem;
+div.landing {
+    width: 90%;
+}
+
+nav.flexRow {
+    justify-content: flex-end;
 }
 
 h2 {
     color: white;
+    margin-bottom: .8rem;
     font-family: 'Spartan', sans-serif;
     font-size: 2.5rem;
     letter-spacing: .5rem;
@@ -35,6 +41,10 @@ button:hover{
 
 select {
     font-size: 2rem;
-    width: 20rem;
+    width: 30rem;
     padding: 1rem;
+}
+
+a.guestProfiles {
+    background-color: #e66465;
 }

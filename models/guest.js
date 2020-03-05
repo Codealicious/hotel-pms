@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 const address = require('./address');
-const reservation = require('./reservation');
 
 var paymentSchema = new mongoose.Schema({
-    billingAddress: address,
     ccNumber: {
         type: Number,
         min: 13,
@@ -26,11 +24,14 @@ var guestSchema = new mongoose.Schema({
         default: ''
     },
     firstName: String,
-    middleName: String,
     lastName: String,
-    reservations: [reservation],
+    phone: String,
+    email: String,
     addresses: [address],
     paymentMethods: [paymentSchema]
 });
 
+
 module.exports = mongoose.model('Guest', guestSchema);
+
+

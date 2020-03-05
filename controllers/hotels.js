@@ -1,27 +1,25 @@
-// var Hotel = require('../models/hotel');
+const Hotel = require('../models/hotel');
+require('../models/reservation');
 
 module.exports = {
-    index
+    show
 }
 
-function index(req, res) {
-    console.log(req.params , "We made it here" )
-    res.render('hotels/index', {
-        title: "Hotels | Home",
-        links: [
-            'siteWide.css',
-            'homePage.css'
-        ],
-        scripts: [
-            'hotels.js'
-        ],
-        hotels: [
-            {name: 'Hyatt', id: 0},
-            {name: 'Marriot', id: 1},
-            {name: 'Hard Rock', id: 2},
-            {name: 'Kimpton', id: 3}
-        ],
-        name: req.user.name
-        
-    })
+function show(req, res) {
+    Hotel.findById(req.params.id)
+        .populate('reservations')
+        .exec((err, hotel) => {
+            res.render('hotels/show', {
+                title: `Hotel: ${hotel.name}`,
+                links: [
+                    'siteWide.css',
+                    'show.css'
+                ],
+                scripts: [
+                    'hotels.js'
+                ],
+                hotel,
+                name: req.user.name
+            });
+        });
 }

@@ -1,0 +1,53 @@
+
+html {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    height: 100%; 
+    background-repeat: no-repeat;
+    background: linear-gradient(#e66465, #df720d );
+  }
+
+nav.flexRow {
+    justify-content: left;
+}
+
+h1.mainHeading {
+    margin: 2rem;
+}
+
+div.contentWrapper {
+    width: 90%;
+}
+
+a {
+    align-self: flex-end;
+}
+
+table {
+    margin-top: 2rem;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 2px solid black;
+}
+
+.type, .name {
+    width: 20rem;
+}
+
+.number {
+    width: 8rem;
+}
+
+.arrival {
+    width: 10rem;
+}
+
+.departure {
+    width: 10rem;
+}
+
+.details {
+    width: 8rem;
+}

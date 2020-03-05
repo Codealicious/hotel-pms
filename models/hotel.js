@@ -4,8 +4,15 @@ const address = require('./address');
 var hotelSchema = new mongoose.Schema({
     name: String,
     address,
-    rooms: [mongoose.Schema.Types.ObjectId],
-    reservations: [mongoose.Schema.Types.ObjectId] 
+    phone: {
+        type: String,
+        default: 0
+    },
+    rooms: [String],
+    reservations: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Reservation'
+    }] 
 });
 
 module.exports = mongoose.model('Hotel', hotelSchema);
