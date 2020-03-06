@@ -67,14 +67,18 @@ function deleteRes(req, res) {
     Reservation.findById(req.params.id, (err, reservation) => {
         Hotel.findById(reservation.propertyId, (err, hotel) => {
             hotel.reservations = hotel.reservations.filter( r => r !== reservation._id );
-            Guest.findById(reservation.primaryGuest, (err, guest) => {
-                guest.reservations = guest.reservations.filter( r => r!== reservation._id);
-                reservation.remove((err) => {
-                    res.redirect(`/hotels/${reservation.propertyId}`)
-                })
-            }); // guest find
-        }); // hotel find
-    }); // res find
+            hotel.save((err) => {
+                Guest.findById(reservation.primaryGuest, (err, guest) => {
+                    guest.reservations = guest.reservations.filter( r => r!== reservation._id);
+                    guest.save((err) => {
+                        reservation.remove((err) => {
+                            res.redirect(`/hotels/${reservation.propertyId}`)
+                        });
+                    });
+                });
+            })
+        }); 
+    }); 
 }
 
 function create(req, res) {
@@ -97,25 +101,28 @@ function create(req, res) {
             currGuest = new Guest(currGuest);
         }
     
+        console.log("currGuest state: " + currGuest);
+
         reservation.primaryGuest = currGuest._id
         reservation.room = req.body.room;
         reservation.arrival = req.body.arrival;
         reservation.departure = req.body.departure;
         reservation.propertyId = hotel._id;
         reservation = new Reservation(reservation);
+    
 
         reservation.save((err, result) => {
-
-            console.log("Result of saving res: " + result);
 
             hotel.reservations.push(result);
             currGuest.reservations.push(result);
 
-            hotel.save((err) => {
-                currGuest.save((err) => {
+            const p1 = hotel.save();
+            const p2 = currGuest.save();
+            
+            Promise.all([p1, p2])
+                .then((results) => {
                     res.redirect(`/hotels/${hotel._id}`);
-                });
-            });
+                })
         });
     });
 }

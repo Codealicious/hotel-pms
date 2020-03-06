@@ -12,7 +12,9 @@ function show(req, res) {
     Reservation.find({propertyId: req.params.id})
         .populate('primaryGuest') 
         .exec((err, results) => {
-  
+            
+            console.log("Results show populate: " + results)
+
          Hotel.findById(req.params.id, (err, hotel) => {
 
             res.render('hotels/show', {
@@ -25,7 +27,7 @@ function show(req, res) {
                     'hotels.js'
                 ],
                 hotel,
-                results,
+                results
             });
          });
        

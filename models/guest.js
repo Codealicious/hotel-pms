@@ -3,12 +3,12 @@ const address = require('./address');
 
 var paymentSchema = new mongoose.Schema({
     ccNumber: {
-        type: Number,
+        type: String,
         min: 13,
         max: 19
     },
     cvv: {
-        type: Number,
+        type: String,
         min: 3,
         max: 3
     },
