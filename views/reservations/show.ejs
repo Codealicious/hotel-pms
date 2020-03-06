@@ -19,7 +19,7 @@
                     <input class="inputFormat" id="departure" name="departure" type="text" value="<%= reservation.departure %>" pattern="[0-1][1-9]\/\d\d\/\d\d\d\d" required>
                     <select id="room" name="room">
                         <%  hotel.rooms.forEach( (room) => { %>
-                                <option <%= reservation.room === room ? 'selected' : '' %>>room</option>
+                                <option <%= reservation.room === room ? 'selected' : '' %>><%= room %></option>
                         <%  }) %>
                     </select>
                 </div>

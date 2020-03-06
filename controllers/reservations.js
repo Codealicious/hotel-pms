@@ -64,19 +64,28 @@ function update(req, res) {
 }
 
 function deleteRes(req, res) {
+
+    let p1;
+    let p2;
+    let p3;
+
     Reservation.findById(req.params.id, (err, reservation) => {
         Hotel.findById(reservation.propertyId, (err, hotel) => {
-            hotel.reservations = hotel.reservations.filter( r => r !== reservation._id );
-            hotel.save((err) => {
-                Guest.findById(reservation.primaryGuest, (err, guest) => {
-                    guest.reservations = guest.reservations.filter( r => r!== reservation._id);
-                    guest.save((err) => {
-                        reservation.remove((err) => {
-                            res.redirect(`/hotels/${reservation.propertyId}`)
-                        });
-                    });
-                });
-            })
+            
+            hotel.reservations = hotel.reservations.filter( (r) => {r !== reservation._id });
+        
+            p1 = hotel.save();
+    
+            Guest.findById(reservation.primaryGuest, (err, guest) => {
+                guest.reservations = guest.reservations.filter( (r) => {r!== reservation._id});
+                p2 = guest.save();
+                p3 = reservation.remove();
+
+                Promise.all([p1,p2,p3]) 
+                .then((results) => {
+                     res.redirect(`/hotels/${reservation.propertyId}`)
+                }); 
+            });
         }); 
     }); 
 }

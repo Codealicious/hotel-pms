@@ -6,7 +6,13 @@ exports.hotels = [
             city: 'San Diego',
             state: 'CA',
             zip: '92101'
-        }
+        },
+        rooms: [
+            '2QQ',
+            'Queen',
+            'King',
+            'Penthouse Suite'
+        ]
     },
     {
         name: 'Kimpton Hotel Palomar',
@@ -15,7 +21,13 @@ exports.hotels = [
             city: 'San Diego',
             state: 'CA',
             zip: '92101',
-        }
+        },
+        rooms: [
+            '2QQ',
+            'Queen',
+            'King',
+            'Penthouse Suite'
+        ]
     },
     {
         name: 'Lakehouse Hotel & Golf Resort',
@@ -24,7 +36,13 @@ exports.hotels = [
             city: 'San Marcos',
             state: 'CA',
             zip: '92078'
-        }
+        },
+        rooms: [
+            '2QQ',
+            'Queen',
+            'King',
+            'Penthouse Suite'
+        ]
     },
     {
         name: 'Rancho Bernardo Inn',
@@ -33,6 +51,12 @@ exports.hotels = [
             city: 'San Diego',
             state: 'CA',
             zip: '92128'
-        }
+        },
+        rooms: [
+            '2QQ',
+            'Queen',
+            'King',
+            'Penthouse Suite'
+        ]
     }
 ]
