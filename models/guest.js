@@ -28,7 +28,7 @@ var guestSchema = new mongoose.Schema({
     phone: String,
     email: String,
     address,
-    paymentMethods: paymentSchema,
+    paymentMethod: paymentSchema,
     reservations: [{
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Reservation'

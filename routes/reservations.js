@@ -7,4 +7,7 @@ router.get('/reservations/:id', reservationsCtrl.show);
 
 router.post('/hotels/:id/reservations', reservationsCtrl.create);
 
+router.put('/reservations/:id', reservationsCtrl.update);
+router.delete('/reservations/:id', reservationsCtrl.delete);
+
 module.exports = router;

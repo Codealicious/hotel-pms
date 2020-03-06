@@ -43,6 +43,10 @@ body {
     justify-content: space-evenly;
 }
 
+.centerFlexColumn {
+    align-items: center;
+}
+
 a {
     font-family: 'Abril Fatface' ;
     letter-spacing: .4rem;
@@ -60,4 +64,23 @@ a {
 a:hover {
     cursor: pointer;
     box-shadow: -1px -2px black;
+}
+
+label.inputFormat {
+    color: white;
+    text-align: left;
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+.inputFormat {
+    display: block;
+    margin: 1rem;
+    font-size: 1.4rem;;
+}
+
+select {
+    font-size: 1.4rem;
+    width: 20rem;
+    margin-left: .6rem;
 }

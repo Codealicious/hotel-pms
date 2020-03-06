@@ -1,0 +1,34 @@
+
+ <%- include('../partials/header'); %>
+
+ <nav class="flexRow leftJustify">
+     <a href="/hotels/<%= hotel._id %>">BACK</a>
+ </nav>
+ <div class="contentWrapper">
+     <div class="flexColumn">
+         <h1>Reservation for: <%= reservation.primaryGuest.title + " " + reservation.primaryGuest.firstName + " " + reservation.primaryGuest.lastName%></h1>
+         <form id="resForm" action="" method="POST">
+            <div class="flexRow leftJustify">
+                <div>
+                    <label class="inputFormat" for="arrival">Arrival:</label>
+                    <label class="inputFormat" for="departure">Departure:</label>
+                    <label class="inputFormat" for="room">Room:</label>
+                </div>
+                <div>
+                    <input class="inputFormat" id="arrival" name="arrival" type="text" value="<%= reservation.arrival %>" pattern="[0-1][1-9]\/\d\d\/\d\d\d\d" required>
+                    <input class="inputFormat" id="departure" name="departure" type="text" value="<%= reservation.departure %>" pattern="[0-1][1-9]\/\d\d\/\d\d\d\d" required>
+                    <select id="room" name="room">
+                        <%  hotel.rooms.forEach( (room) => { %>
+                                <option <%= reservation.room === room ? 'selected' : '' %>>room</option>
+                        <%  }) %>
+                    </select>
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="button" value="/reservations/<%=reservation._id%>/?_method=PUT">Update Reservation</button><button type="button" value="/reservations/<%=reservation._id%>/?_method=DELETE">Delete Reservation</button>
+            </div>
+         </form>
+    </div>
+ </div>
+
+<%- include('../partials/footer'); %>

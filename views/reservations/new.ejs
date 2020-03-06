@@ -4,14 +4,13 @@
         <a href="/hotels/<%= hotel._id %>">BACK</a>
     </nav>
     <div class="contentWrapper">
-        <div class="flexColumn">
-            <div class="centerForm">
+        <div class="flexColumn centerFlexColumn">
                 <h1 class="mainHeading">New Reservation</h1>
                 <% if(error) { %>
                 <%-   `<h2>Could Not Save Reservation</h2>` %>
                 <% } %>
                 <form action="/guests/show" method="GET">
-                    <div class="flexRow leftJustify guestLookup">
+                    <div id="lookup" class="flexRow leftJustify guestLookup">
                         <input type="text" name="name" required pattern="[a-zA-Z]{1,}">
                         <button type="submit">Look Up Guest</button>
                     </div>
@@ -100,7 +99,6 @@
                     <input type="hidden" name="user" value="<%=user%>">
                     <button class="makeButton" type="submit">Make Reservation</button>
                 </form>
-            </div>
         </div>
     </div>
 

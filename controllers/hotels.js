@@ -15,9 +15,6 @@ function show(req, res) {
   
          Hotel.findById(req.params.id, (err, hotel) => {
 
-            console.log("Hotel info: " + hotel);
-            console.log("results are: " + results);
-
             res.render('hotels/show', {
                 title: `Hotel: ${hotel.name}`,
                 links: [
@@ -29,7 +26,6 @@ function show(req, res) {
                 ],
                 hotel,
                 results,
-                name: req.user.name
             });
          });
        

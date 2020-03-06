@@ -5,7 +5,9 @@ const Guest = require('../models/guest');
 module.exports = {
     new: newOne,
     show,
-    create
+    create,
+    update,
+    delete: deleteRes
 }
 
 function newOne(req, res) {
@@ -26,6 +28,53 @@ function newOne(req, res) {
 
 function show(req, res) {
 
+    Reservation.findById(req.params.id)
+        .populate("primaryGuest")
+        .exec((err, reservation) => {
+            Hotel.findById(reservation.propertyId, (err, hotel) => {
+                res.render('reservations/show', {
+                    title: "Reservation | Details",
+                    links: [
+                        'siteWide.css',
+                        'showRes.css'
+                    ],
+                    scripts: [
+                        'updateRes.js'
+                    ],
+                    hotel,
+                    reservation
+                })
+            });
+        });
+}
+
+function update(req, res) {
+
+    Reservation.updateOne( { _id: req.params.id }, 
+        {
+            arrival: req.body.arrival,
+            departure: req.body.departure,
+            room: req.body.room ? req.body.room : ' '
+        },
+       (err) => {
+           Reservation.findById(req.params.id, (err, reservatioon) => {
+               res.redirect(`/hotels/${reservatioon.propertyId}`);
+           });
+       });
+}
+
+function deleteRes(req, res) {
+    Reservation.findById(req.params.id, (err, reservation) => {
+        Hotel.findById(reservation.propertyId, (err, hotel) => {
+            hotel.reservations = hotel.reservations.filter( r => r !== reservation._id );
+            Guest.findById(reservation.primaryGuest, (err, guest) => {
+                guest.reservations = guest.reservations.filter( r => r!== reservation._id);
+                reservation.remove((err) => {
+                    res.redirect(`/hotels/${reservation.propertyId}`)
+                })
+            }); // guest find
+        }); // hotel find
+    }); // res find
 }
 
 function create(req, res) {

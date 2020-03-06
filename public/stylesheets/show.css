@@ -7,10 +7,6 @@ html {
     background: linear-gradient(#e66465, #df720d );
   }
 
-nav.flexRow {
-    justify-content: left;
-}
-
 h1.mainHeading {
     margin: 2rem;
 }

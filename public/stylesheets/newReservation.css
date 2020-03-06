@@ -2,9 +2,8 @@ nav.flexRow {
     align-items: stretch;
 }
 
-.centerForm {
-    margin: 1rem auto;
-    padding: 1rem;
+#lookup {
+    width: 46.6rem;
 }
 
 div.guestLookup {
@@ -27,24 +26,6 @@ h1.mainHeading {
     margin: 2rem;
 }
 
-label.inputFormat {
-    color: white;
-    text-align: left;
-    margin: 1rem 0;
-    font-size: 2rem;
-}
-
-.inputFormat {
-    display: block;
-    margin: 1rem;
-    font-size: 1.4rem;;
-}
-
-select {
-    font-size: 1.4rem;
-    width: 20rem;
-    margin-left: .6rem;
-}
 
 #street {
     margin: .8rem 0;
