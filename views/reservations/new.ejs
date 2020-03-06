@@ -9,10 +9,10 @@
                 <% if(error) { %>
                 <%-   `<h2>Could Not Save Reservation</h2>` %>
                 <% } %>
-                <form action="/guests/show" method="GET">
+                <form action="" method="GET">
                     <div id="lookup" class="flexRow leftJustify guestLookup">
                         <input type="text" name="name" required pattern="[a-zA-Z]{1,}">
-                        <button type="submit">Look Up Guest</button>
+                        <button disabled type="submit">Look Up Guest</button>
                     </div>
                 </form>
                 <form action="/hotels/<%= hotel._id %>/reservations" method="POST">
