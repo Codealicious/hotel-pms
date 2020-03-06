@@ -1,12 +1,12 @@
-<%- include('../partials/header'); %>
+ <%- include('../partials/header'); %>
 
     <nav class="flexRow">
-        <a href="/landing">BACK</a>
+        <a href="/landing/null">BACK</a>
     </nav>
     <div class="contentWrapper">
         <div class="flexColumn">
             <h1 class="mainHeading"><%= hotel.name %></h1>
-            <a href="/hotels/<%=hotel._id%>/reservations/new">New Reservation</a>
+            <a href="/hotels/<%=hotel._id%>/reservations/new/null">New Reservation</a>
             <table>
                 <thead>
                     <tr>
@@ -17,20 +17,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% hotel.reservations.forEach( (res) => { 
-                            let arrival = `${(res.arrival.getMonth() + 1).toString().padStart(2, '0')}/${res.arrival.getDate().toString().padStart(2, '0')}/${res.arrival.getFullYear()}`;
-                            let departure = `${(res.departure.getMonth() + 1).toString().padStart(2, '0')}/${res.departure.getDate().toString().padStart(2, '0')}/${res.departure.getFullYear()}`;
-                    %>
-                    <%- `
-                        <tr>
-                            <td>${res.primaryGuest.title}, ${res.primaryGuest.firstName} ${res.primaryGuest.lastName}</td>
-                            <td>${arrival}</td>
-                            <td>${departure}</td>
-                            <td><a href="/reservations/${res._id}">Details</a></td>
-                        </tr>
-                        `
-                    %>
-                    <% }); %>
+                    <% results.forEach( (res) => {  %>
+                        <%- `
+                            <tr>
+                                <td>${res.primaryGuest.title} ${res.primaryGuest.firstName} ${res.primaryGuest.lastName}</td>
+                                <td>${res.arrival}</td>
+                                <td>${res.departure}</td>
+                                <td><a href="/reservations/${res._id}">Details</a></td>
+                            </tr>
+                            `
+                        %>
+                        <% }); %>
                 </tbody>
             </table>
            

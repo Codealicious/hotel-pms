@@ -6,13 +6,13 @@ var reservationSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Guest'
     },
-    room: { 
+    propertyId: {
         type: Schema.Types.ObjectId,
-         ref: 'Room'
+        ref: 'Hotel'
     },
-    additonalGuests: [String],
-    arrival: Date,
-    departure: Date
+    room: String,
+    arrival: String,
+    departure: String
 });
 
 module.exports = mongoose.model('Reservation', reservationSchema);

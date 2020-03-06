@@ -5,6 +5,9 @@
     </nav>
     <div class="contentWrapper landing">
         <h1 class="mainHeading">Welcome <%= name %></h1>
+        <% if(error) { %>
+        <%-     `<h2>Could Not Find Hotel</h2>` %>
+        <% } %>
         <div class="flexRow">
             <div>
                 <h2>Select Your Property: </h2>

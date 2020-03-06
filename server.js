@@ -7,7 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var guestsRouter = require('./routes/guests');
 var hotelsRouter = require('./routes/hotels');
 var reservationsRouter = require('./routes/reservations');
 
@@ -38,7 +38,7 @@ app.use(passport.session());
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/guests', guestsRouter);
 app.use('/hotels', hotelsRouter);
 app.use('/', reservationsRouter);
 

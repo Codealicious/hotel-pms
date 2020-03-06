@@ -7,13 +7,16 @@
         <div class="flexColumn">
             <div class="centerForm">
                 <h1 class="mainHeading">New Reservation</h1>
+                <% if(error) { %>
+                <%-   `<h2>Could Not Save Reservation</h2>` %>
+                <% } %>
                 <form action="/guests/show" method="GET">
                     <div class="flexRow leftJustify guestLookup">
                         <input type="text" name="name" required pattern="[a-zA-Z]{1,}">
                         <button type="submit">Look Up Guest</button>
                     </div>
                 </form>
-                <form action="/reservations" method="POST">
+                <form action="/hotels/<%= hotel._id %>/reservations" method="POST">
                     <div class="flexRow leftJustify">
                         <div>
                             <label class="inputFormat" for="arrival">Arrival:</label>
@@ -26,7 +29,7 @@
                     </div>
                     <div class="flexRow leftJustify">
                         <label class="inputFormat">Select Room</label>
-                        <select>
+                        <select name="room">
                             <%  hotel.rooms.forEach( (room) => { %>
                             <%- `<option>${room}</option>` %>
                             <%  }) %>
@@ -34,7 +37,7 @@
                     </div>
                     <div class="flexRow leftJustify">
                         <label class="inputFormat">Title:</label>
-                        <select>
+                        <select name="title">
                             <option value="Mr.">Mr.</option>
                             <option value="Mrs.">Mrs.</option>
                             <option value="Ms.">Ms.</option>
@@ -94,6 +97,7 @@
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="user" value="<%=user%>">
                     <button class="makeButton" type="submit">Make Reservation</button>
                 </form>
             </div>

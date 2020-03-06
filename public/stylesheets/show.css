@@ -30,14 +30,12 @@ table {
 
 th, td {
     border: 2px solid black;
+    font-size: 2rem;
+    padding: 1.5rem;
 }
 
-.type, .name {
-    width: 20rem;
-}
-
-.number {
-    width: 8rem;
+.name {
+    width: 40rem;
 }
 
 .arrival {

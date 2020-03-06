@@ -5,7 +5,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  if(req.user) return res.redirect('/landing');
+  if(req.user) return res.redirect('/landing/null');
   res.render('index', {
     title: 'Login Page',
     links: [
@@ -24,7 +24,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/landing',
+    successRedirect: '/landing/null',
     failureRedirect: '/'
   }
 ));
@@ -34,10 +34,11 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
-router.get('/landing', function(req, res) {
+router.get('/landing/:error', function(req, res) {
   Hotel.find({}, (err, hotels) => { 
     res.render('landing', {
       title: "Hotels | Home",
+      error: req.params.error === "null" ? false : true,
       links: [
           'siteWide.css',
           'landing.css'
