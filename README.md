@@ -51,4 +51,6 @@
 + Guest lookup when making a reservation.
     + ability to populate new reservations with existing guest profiles.
 
+[Click here for a detailed outline of current and future developments : Trello Board](https://trello.com/b/hZtPn8eQ/project-2)    
+
 [Visit Hotelware PMS](http://hotelware-pms.herokuapp.com/)
